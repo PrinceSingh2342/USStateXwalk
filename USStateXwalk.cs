@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace USStateXwalk
 {
-    public partial class Form1 : Form
+    public partial class USStateXwalk : Form
     {
-        public Form1()
+        public USStateXwalk()
         {
             InitializeComponent();
         }
