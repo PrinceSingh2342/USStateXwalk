@@ -36,6 +36,7 @@
             this.btnbrowsefolder = new System.Windows.Forms.Button();
             this.fdbbrowsefolder = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ProcessXwalkCrawl
@@ -51,7 +52,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(157, 188);
+            this.label1.Location = new System.Drawing.Point(767, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 20);
             this.label1.TabIndex = 1;
@@ -59,6 +60,7 @@
             // 
             // StateCDcomboBox
             // 
+            this.StateCDcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.StateCDcomboBox.FormattingEnabled = true;
             this.StateCDcomboBox.Location = new System.Drawing.Point(982, 63);
             this.StateCDcomboBox.Name = "StateCDcomboBox";
@@ -72,21 +74,33 @@
             this.DownloadXwalkPath.Name = "DownloadXwalkPath";
             this.DownloadXwalkPath.Size = new System.Drawing.Size(475, 26);
             this.DownloadXwalkPath.TabIndex = 3;
+            this.DownloadXwalkPath.TextChanged += new System.EventHandler(this.DownloadXwalkPath_TextChanged);
             // 
             // btnbrowsefolder
             // 
-            this.btnbrowsefolder.Location = new System.Drawing.Point(901, 191);
+            this.btnbrowsefolder.Location = new System.Drawing.Point(901, 188);
             this.btnbrowsefolder.Name = "btnbrowsefolder";
-            this.btnbrowsefolder.Size = new System.Drawing.Size(154, 27);
+            this.btnbrowsefolder.Size = new System.Drawing.Size(154, 38);
             this.btnbrowsefolder.TabIndex = 4;
             this.btnbrowsefolder.Text = "Browse Folder";
             this.btnbrowsefolder.UseVisualStyleBackColor = true;
+            this.btnbrowsefolder.Click += new System.EventHandler(this.btnbrowsefolder_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(65, 188);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(163, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Download Xwalk Path";
             // 
             // USStateXwalk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1249, 641);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnbrowsefolder);
             this.Controls.Add(this.DownloadXwalkPath);
             this.Controls.Add(this.StateCDcomboBox);
@@ -108,6 +122,7 @@
         private System.Windows.Forms.Button btnbrowsefolder;
         private System.Windows.Forms.FolderBrowserDialog fdbbrowsefolder;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

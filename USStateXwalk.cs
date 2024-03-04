@@ -11,12 +11,14 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace USStateXwalk
 {
     public partial class USStateXwalk : Form
     {
         string lstr;
+        string selectedpath;
         HttpWebRequest request;
         HttpWebResponse response = null/* TODO Change to default(_) if this is not a reference type */;
         StreamReader reader;
@@ -36,8 +38,24 @@ namespace USStateXwalk
 
         private void StateCDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string StateCDName = ConfigurationManager.AppSettings["StateName"];
+            string USStatevalue = ConfigurationManager.AppSettings["USStateList"];
+            //foreach (var key in USStatevalue.Split)
+            //{
+            //    StateCDcomboBox.Items.Add(USStatevalue[key]);
+            //}
+            //Controls.Add(StateCDcomboBox);
+        }
 
+        private void btnbrowsefolder_Click(object sender, EventArgs e)
+        {
+            fdbbrowsefolder.ShowDialog();
+            DownloadXwalkPath.Text = fdbbrowsefolder.SelectedPath;
+            selectedpath = DownloadXwalkPath.Text;
+        }
+
+        private void DownloadXwalkPath_TextChanged(object sender, EventArgs e)
+        {
+            selectedpath = DownloadXwalkPath.Text;
         }
     }
 }
