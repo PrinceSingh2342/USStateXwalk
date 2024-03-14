@@ -26,6 +26,7 @@ namespace USStateXwalk
         public USStateXwalk()
         {
             InitializeComponent();
+            StateCDcomboBox_SelectedIndexChanged(reader, null);
         }
 
         private void ProcessXwalkCrawl_Click(object sender, EventArgs e)
@@ -38,12 +39,17 @@ namespace USStateXwalk
 
         private void StateCDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string USStatevalue = ConfigurationManager.AppSettings["USStateList"];
-            //foreach (var key in USStatevalue.Split)
-            //{
-            //    StateCDcomboBox.Items.Add(USStatevalue[key]);
-            //}
-            //Controls.Add(StateCDcomboBox);
+            string USStateValue = ConfigurationManager.AppSettings["USStateList"];
+            if (!string.IsNullOrEmpty(USStateValue))
+            {
+                string[] values = USStateValue.Split(',');
+                StateCDcomboBox.Items.AddRange(values);
+            }
+            else
+            {
+                // Handle the case where the key is not found in the App.config
+                MessageBox.Show("ComboBoxValues key not found in App.config");
+            }
         }
 
         private void btnbrowsefolder_Click(object sender, EventArgs e)
